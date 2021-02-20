@@ -12,7 +12,11 @@
         "Android >= 4.1",
         "ios >= 8"
     ],
+    "dependencies": {
+        "@x-drive/utils": "1.1.2"
+    },
     "devDependencies": {
+        "sirv-cli": "1.0.11",
         "@rollup/plugin-commonjs": "17.1.0",
         "@rollup/plugin-node-resolve": "11.2.0",
         "rollup": "2.39.0",
@@ -48,9 +52,5 @@
         "less": "4.1.1",
         "autoprefixer": "10.2.4",
         "postcss": "8.2.6"
-    },
-    "dependencies": {
-        "sirv-cli": "1.0.11",
-        "@x-drive/utils": "1.1.2"
     }
 }

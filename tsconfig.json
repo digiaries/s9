@@ -1,0 +1,44 @@
+{
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "compilerOptions": {
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "importHelpers": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitAny": false,
+        "allowSyntheticDefaultImports": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strictNullChecks": false,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "baseUrl": "./",
+        "typeRoots": [
+            "node_modules/@types",
+            "src/global.d.ts"
+        ],
+        "paths": {
+            "@components/*": [
+                "./src/components/*"
+            ],
+            "@utils/*": [
+                "./src/utils/*"
+            ],
+            "@utils": [
+                "./src/utils/index"
+            ],
+            "@consts/*": [
+                "./src/consts/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules/*",
+        "__sapper__/*",
+        "public/*"
+    ]
+}

@@ -30,6 +30,9 @@
             ],
             "@consts/*": [
                 "./src/consts/*"
+            ],
+            "@pages/*": [
+                "./src/pages/*"
             ]
         }
     },

@@ -4,7 +4,7 @@
     "scripts": {
         "build": "rollup -c",
         "dev": "rollup -c -w",
-        "start": "sirv public",
+        "start": "sirv public -s",
         "validate": "svelte-check"
     },
     "browserslist": [
@@ -15,7 +15,8 @@
     "dependencies": {
         "@x-drive/utils": "1.1.2",
         "@x-drive/request": "1.0.1",
-        "@x-drive/flexible": "1.0.0"
+        "@x-drive/flexible": "1.0.0",
+        "super-svelte-router": "1.0.2"
     },
     "devDependencies": {
         "sirv-cli": "1.0.11",

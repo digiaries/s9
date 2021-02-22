@@ -4,6 +4,7 @@ import livereload from "rollup-plugin-livereload";
 import sveltePreprocess from "svelte-preprocess";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
+import pxtransform from "postcss-pxtorem";
 import svelte from "rollup-plugin-svelte";
 import alias from "@rollup/plugin-alias";
 import css from "rollup-plugin-css-only";
@@ -82,7 +83,11 @@ export default {
 				}
 				, "postcss": {
 					"plugins": [
-						autoprefixer()
+						autoprefixer
+						, pxtransform({
+							"rootValue": 75
+							, "propList": ["*"]
+						})
 					]
 				}
 			}),

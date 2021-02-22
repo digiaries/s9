@@ -14,7 +14,8 @@
     ],
     "dependencies": {
         "@x-drive/utils": "1.1.2",
-        "@x-drive/request": "1.0.1"
+        "@x-drive/request": "1.0.1",
+        "@x-drive/flexible": "1.0.0"
     },
     "devDependencies": {
         "sirv-cli": "1.0.11",
@@ -52,6 +53,7 @@
         "@types/babel-types": "^7.0.7",
         "less": "4.1.1",
         "autoprefixer": "10.2.4",
-        "postcss": "8.2.6"
+        "postcss": "8.2.6",
+        "postcss-pxtorem": "5.1.1"
     }
 }

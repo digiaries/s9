@@ -1,7 +1,10 @@
 import { config as setRequestConfig } from "@x-drive/request";
-import App from "@pages/app.svelte";
+import flexible from "@x-drive/flexible";
 import hosts from "@consts/hosts";
 import apis from "@consts/apis";
+import App from "./App.svelte";
+
+flexible("S9", true);
 
 setRequestConfig({
 	hosts
@@ -10,9 +13,6 @@ setRequestConfig({
 
 const app = new App({
 	"target": document.body
-	, "props": {
-		"name": "小9"
-	}
 });
 
 export default app;

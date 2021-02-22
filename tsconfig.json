@@ -1,6 +1,7 @@
 {
     "extends": "@tsconfig/svelte/tsconfig.json",
     "compilerOptions": {
+        "module": "esnext",
         "removeComments": false,
         "preserveConstEnums": true,
         "importHelpers": true,

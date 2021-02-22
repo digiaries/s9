@@ -24,7 +24,9 @@ function serve() {
 
 	return {
 		writeBundle() {
-			if (server) return;
+			if (server) {
+				return;
+			};
 			server = require("child_process").spawn("npm", ["run", "start", "--", "--dev"], {
 				"stdio": ["ignore", "inherit", "inherit"]
 				, "shell": true
@@ -39,10 +41,11 @@ function serve() {
 export default {
 	"input": "src/main.ts"
 	, "output": {
-		"sourcemap": true
-		, "format": "iife"
+		"sourcemap": !production
+		, "format": "es"
 		, "name": "app"
-		, "file": "public/build/bundle.js"
+		, "dir": "public/build"
+		, "chunkFileNames": production ? "[name]-[hash].js" : "[name].js"
 	}
 	, "plugins": [
 		svelte({
@@ -98,7 +101,7 @@ export default {
 		})
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
-		, css({ "output": "bundle.css" })
+		, css()
 		, resolve({
 			"browser": true
 			, "dedupe": ["svelte"]

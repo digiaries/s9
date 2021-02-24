@@ -1,14 +1,17 @@
 import typescript from "@rollup/plugin-typescript";
+import { emptyDir } from "rollup-plugin-empty-dir";
 import resolve from "@rollup/plugin-node-resolve";
 import livereload from "rollup-plugin-livereload";
 import sveltePreprocess from "svelte-preprocess";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
+import postcss from "rollup-plugin-postcss";
 import pxtransform from "postcss-pxtorem";
 import svelte from "rollup-plugin-svelte";
 import alias from "@rollup/plugin-alias";
-import css from "rollup-plugin-css-only";
+// import css from "rollup-plugin-css-only";
 import autoprefixer from "autoprefixer";
+// import cssnano from "cssnano";
 import path from "path";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -45,10 +48,12 @@ export default {
 		, "format": "es"
 		, "name": "app"
 		, "dir": "public/build"
+		// , "entryFileNames": "app.js"
 		, "chunkFileNames": production ? "[name]-[hash].js" : "[name].js"
 	}
 	, "plugins": [
-		svelte({
+		production && emptyDir()
+		, svelte({
 			"preprocess": sveltePreprocess({
 				"sourceMap": !production
 				, "babel": {
@@ -85,7 +90,8 @@ export default {
 					, "include": "node_modules/@x-drive"
 				}
 				, "postcss": {
-					"plugins": [
+					"extensions": [".css", ".less"]
+					, "plugins": [
 						autoprefixer
 						, pxtransform({
 							"rootValue": 75
@@ -93,15 +99,16 @@ export default {
 						})
 					]
 				}
-			}),
-			"compilerOptions": {
+			})
+			, "compilerOptions": {
 				// enable run-time checks when not in production
 				"dev": !production
 			}
 		})
+		, postcss()
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
-		, css()
+		// , css()
 		, resolve({
 			"browser": true
 			, "dedupe": ["svelte"]

@@ -1,10 +1,13 @@
-import Index from "@pages/Index.svelte";
+// import Index from "@pages/Index.svelte";
 
 const Router = {
     "routes": [
         {
             "path": "/"
-            , "component": Index
+            // , "component": Index
+            , "lazyLoad": {
+                component: () => import("@pages/Index.svelte")
+            }
             , "name": "Index"
         }
         , {

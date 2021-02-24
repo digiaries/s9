@@ -4,6 +4,8 @@ import hosts from "@consts/hosts";
 import apis from "@consts/apis";
 import App from "./App.svelte";
 
+import "@components/common/reset.less";
+
 flexible("S9", true);
 
 setRequestConfig({

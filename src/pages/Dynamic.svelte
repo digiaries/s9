@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let params;
+	// import "./index.less";
 	import getQuery from "@components/query";
 	const query = getQuery();
 	console.log(params);

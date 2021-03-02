@@ -3,15 +3,22 @@
 	// import "./index.less";
 	import getQuery from "@components/query";
 	const query = getQuery();
-	console.log(params);
-	console.log(query);
-	console.log("????");
+	for (let i = 0; i < 10; i++) {
+		setTimeout(
+			(j) => {
+				params.type = `Test${j}`;
+			},
+			2000 * i,
+			i
+		);
+	}
 </script>
 
-<main class="P-dynamic">
+<div class="P-dynamic">
 	<h1 class="P-dynamicTitle">Dynamic!</h1>
-	<p>{query.id}</p>
-</main>
+	<p>{params.type}{query.id || ""}</p>
+	<p>{JSON.stringify(query)}</p>
+</div>
 
 <style lang="less">
 	.P-dynamic {

@@ -1,6 +1,13 @@
 {
     "name": "@x-dirve/s9",
     "version": "1.0.0",
+    "keywords": [
+        "Svelte",
+        "Rollup",
+        "Typescript",
+        "Postcss",
+        "Less"
+    ],
     "scripts": {
         "build": "rollup -c",
         "dev": "rollup -c -w",
